@@ -95,7 +95,7 @@ const getData = async function (movie) {
                 <a  href="HomePage.html?id=${jsonData.Title}"><img id="poster" src="${jsonData.Poster}" alt="" onerror="this.src='NotFoundImage.png'" ></a>
                 <div id="movieName">
                 <p>${jsonData.Title}</p>
-                <a onclick="addToFavourites('${i.Title}')" href="#">  <i class="fa-solid fa-bookmark fa-flip" style="--fa-animation-duration: 3s; --fa-animation-iteration-count: infinite;" ></i>
+                <a onclick="addToFavourites('${jsonData.Title}')" href="#">  <i class="fa-solid fa-bookmark fa-flip" style="--fa-animation-duration: 3s; --fa-animation-iteration-count: infinite;" ></i>
                 </div>   
                 </div>  
              `
