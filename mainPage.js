@@ -235,7 +235,7 @@ var favouriteLoader = async function () {
         }
     }
     if (localStorage.length < 2) {
-        div1.innerHTML += `<h1>No Movies Added to Favourite List</h1>`
+        div1.innerHTML += `<h1 id="not-found">No Movies Added to Favourite List</h1>`
     }
     document.getElementById("test").append(div1);
 }
