@@ -91,8 +91,14 @@ body {
 }
 
 .searchBar button:hover {
-  height: 3.2vw !important;
   background-color: rgb(250, 224, 79) !important;
+}
+
+#navbar-watchList a {
+  font-size: 3.5vh;
+}
+#test {
+  padding: 40px;
 }
 
 .movieCard {
@@ -104,22 +110,14 @@ body {
   width: 70%;
   padding: 40px;
   margin-left: 17%;
-  min-width: 600px !important;
-  min-height: 20vw;
+  /* min-width: 600px !important; */
+  /* min-height: 20vw; */
   border-radius: 10px;
   /* box-shadow: 2vw 2vw 2vw rgb(109, 109, 106); */
   text-align: center;
 }
 
-#test {
-  /* background-color: rgba(38, 207, 114, 0.651); */
-  padding: 40px;
 
-  /* margin-top: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around; */
-}
 
 #poster {
   border-radius: 10px;
@@ -151,7 +149,6 @@ body {
 
 #block-div {
   box-sizing: border-box;
-  box-shadow: 10px 20px 10px rgb(126, 126, 126);
   /* margin: 0px 5px 25px 5px; */
   margin: 3vh 0;
   margin-left: 5vw;
@@ -162,6 +159,10 @@ body {
   border-radius: 7px;
 }
 
+#block-div:hover{
+  transform: translateX(5px) translatey(5px) !important;
+  box-shadow: 10px 20px 10px rgb(126, 126, 126);
+}
 #block-div p {
   font-size: 15px;
   margin: auto;
@@ -175,7 +176,6 @@ body {
   gap: 10px;
   padding: 6px;
   width: 60%;
-  min-width: 600px !important;
   margin: auto;
   margin-top: 40px;
   border-radius: 10px;
@@ -224,12 +224,12 @@ body {
   font-size: 8vh;
   font-weight: 800;
   color: rgb(255, 255, 255);
-  background: linear-gradient(to right, white,gold, white);
+  background: linear-gradient(to right, white, gold, white);
   color: transparent;
   -webkit-background-clip: text;
 }
 
-/* @media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) {
   .movieCard {
     display: flex;
     flex-wrap: wrap;
@@ -238,10 +238,23 @@ body {
     /* margin-left: 40vw;  */
     width: 40%;
     padding: 40px;
-    min-width: 600px !important;
-    min-height: 20vw;
     border-radius: 10px;
     /* box-shadow: 2vw 2vw 2vw rgb(109, 109, 106); */
     text-align: center;
   }
-} */
+  .detailed-Card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100% !important;
+    margin-left: 5%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .detailed-Card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}
