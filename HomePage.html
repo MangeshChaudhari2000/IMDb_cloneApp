@@ -1,0 +1,47 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="mainCss.css" />
+  <script
+      src="https://kit.fontawesome.com/c715010392.js"
+      crossorigin="anonymous"
+    ></script>
+  <title>Home Page</title>
+</head>
+
+<body onload="DisplayInfo()">
+  <div class="container">
+    <nav class="navbar">
+      <div id="logo">
+        <a href="mainPage.html">
+          <h1>IMDB</h1>
+        </a>
+      </div>
+      <div class="searchBar">
+        <div id="input">
+          <input
+            type="text"
+            placeholder="Enter Movie Name "
+            id="searchInput"
+          />
+          <button id="searchBtn">Search</button>
+        </div>
+        <div id="navbar-watchList">
+          <a href="favourite.html"
+            ><i class="fa-solid fa-bookmark" style="color: #fc0f0f"></i
+          ></a>
+          <a href="favourite.html">watchList</a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="test">
+    </div>
+    <script src="mainPage.js"></script>
+</body>
+
+
+
+</html>
