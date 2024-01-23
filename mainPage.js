@@ -2,6 +2,36 @@ let apiKey = "c4ff0bfb";
 let searchInput = document.getElementById("searchInput");
 let searchButon = document.getElementById("searchBtn");
 let count = localStorage.length;
+
+searchButon.addEventListener("click", function () {
+
+    let movieName = searchInput.value;
+    if (movieName != '' && movieName != 'undefined') {
+        getData(movieName);
+    } else {
+        alert("You have not Enterd Movie Name")
+        console.log("enter movie name");
+        // document.getElementById("test").innerHTML =
+        //    `<h1 id="not-found">Enter Movie Name </h1>`;
+    }
+});
+
+searchInput.addEventListener("keypress", function (e) {
+    // console.log(e);
+    if (e.key == 'Enter') {
+        let movieName = searchInput.value;
+        if (movieName != '' && movieName != 'undefined') {
+            getData(movieName);
+        } else {
+            alert("You have not Enterd Movie Name")
+            console.log("enter movie name");
+            // document.getElementById("test").innerHTML =
+            // `<h1 id="not-found">Enter Movie Name </h1>`;
+        }
+    }
+
+});
+
 //feching Movie data from OMDC API
 const getData = async function (movie) {
     try {
@@ -29,7 +59,7 @@ const getData = async function (movie) {
                 for (i of x) {
                     div1.innerHTML += ` 
                     <div id="block-div">
-                    <a onclick="DisplayInfo(${i.Title})" href="HomePage.html?id=${i.Title}" ><img id="poster" src="${i.Poster}" alt="" onerror="this.src='NotFoundImage.png'" ></a>
+                    <a href="HomePage.html?id=${i.Title}" ><img id="poster" src="${i.Poster}" alt="" onerror="this.src='NotFoundImage.png'" ></a>
                     <div id="movieName">
                     <p>${i.Title}</p>
                     <a onclick="addToFavourites('${i.Title}')" href="#">  <i class="fa-solid fa-bookmark fa-flip" style="--fa-animation-duration: 3s; --fa-animation-iteration-count: infinite;" ></i>
@@ -41,7 +71,7 @@ const getData = async function (movie) {
 
                 document.getElementById("test").append(div1);
             }
-            else if (jsonData.Error!='Movie not found!'&&jsonData.Error!='Incorrect IMDb ID.') {
+            else if (jsonData.Error != 'Movie not found!' && jsonData.Error != 'Incorrect IMDb ID.') {
                 console.log("Tring via Title to get result");
                 fetchData = await fetch(
                     `https://www.omdbapi.com/?apikey=${apiKey}&t=${movie}`
@@ -62,7 +92,7 @@ const getData = async function (movie) {
                 div1.innerHTML = ` 
                 <div id="block-div">
 
-                <a onclick="DisplayInfo(${jsonData.Title})" href="HomePage.html?id=${jsonData.Title}"><img id="poster" src="${jsonData.Poster}" alt="" onerror="this.src='NotFoundImage.png'" ></a>
+                <a  href="HomePage.html?id=${jsonData.Title}"><img id="poster" src="${jsonData.Poster}" alt="" onerror="this.src='NotFoundImage.png'" ></a>
                 <div id="movieName">
                 <p>${jsonData.Title}</p>
                 <a onclick="addToFavourites('${i.Title}')" href="#">  <i class="fa-solid fa-bookmark fa-flip" style="--fa-animation-duration: 3s; --fa-animation-iteration-count: infinite;" ></i>
@@ -70,13 +100,13 @@ const getData = async function (movie) {
                 </div>  
              `
                 document.getElementById("test").append(div1);
-            } else{
+            } else {
                 console.log("movie not found");
                 document.getElementById(
                     "test"
                 ).innerHTML = `<h1 id="not-found">Movie Name couldnt Found!</h1>`;
-        
-            }    
+
+            }
         }
         catch (e) {
             console.log(e);
@@ -86,35 +116,12 @@ const getData = async function (movie) {
         document.getElementById(
             "test"
         ).innerHTML = `<h1 id="not-found">Ohh Technical Error!</h1>`;
-        console.log("movie name not enterd" + error);
+        console.log("Technical Error: " + error);
     }
 };
 
 // getData();
-searchButon.addEventListener("click", function () {
 
-    let movieName = searchInput.value;
-    if (movieName != "" || movieName != "undefined") {
-        getData(movieName);
-    } else {
-        document.getElementsByClassName("movieCard").innerHTML =
-            "<h1>Enter Movie Name </h1>";
-    }
-});
-
-searchInput.addEventListener("keypress", function (e) {
-    // console.log(e);
-    if (e.key == 'Enter') {
-        let movieName = searchInput.value;
-        if (movieName != "" || movieName != "undefined") {
-            getData(movieName);
-        } else {
-            document.getElementsByClassName("movieCard").innerHTML =
-                "<h1>Enter Movie Name </h1>";
-        }
-    }
-
-});
 
 //---------------------Detailed Movie Info------
 const DisplayInfo = async function () {
@@ -202,7 +209,6 @@ function removeFavourites(favMovieName) {
 }
 
 var favouriteLoader = async function () {
-    var block = "";
     let jsonData;
     let div1 = document.createElement("div"); //created Div
     div1.classList.add("movieCard");
