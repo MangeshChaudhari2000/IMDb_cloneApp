@@ -12,7 +12,7 @@ const getData = async function (movie) {
             fetchData = await fetch(
                 // `http://www.omdbapi.com/?apikey=${apiKey}&t=${movie}`
                 // `https://www.omdbapi.com/?s=${(movie).trim()}&page=1&apikey=${apiKey}`
-                `http://www.omdbapi.com/?apikey=${apiKey}&s=${movie}`
+                `https://www.omdbapi.com/?apikey=${apiKey}&s=${movie}`
             );
             jsonData = await fetchData.json();
             if (jsonData.Response == 'True') {
@@ -44,7 +44,7 @@ const getData = async function (movie) {
             else if (jsonData.Error!='Movie not found!'&&jsonData.Error!='Incorrect IMDb ID.') {
                 console.log("Tring via Title to get result");
                 fetchData = await fetch(
-                    `http://www.omdbapi.com/?apikey=${apiKey}&t=${movie}`
+                    `https://www.omdbapi.com/?apikey=${apiKey}&t=${movie}`
                 );
                 jsonData = await fetchData.json();
 
@@ -123,7 +123,7 @@ const DisplayInfo = async function () {
     console.log(id);
     try {
         let fetchData = await fetch(
-            `http://www.omdbapi.com/?apikey=${apiKey}&t=${id}`
+            `https://www.omdbapi.com/?apikey=${apiKey}&t=${id}`
         );
         // let fetchData = await fetch(`http://www.omdbapi.com/?apikey=${apiKey}&t="pk"`);
 
@@ -212,7 +212,7 @@ var favouriteLoader = async function () {
         console.log(id);
         if (id != null && id != '') {
             let fetchData = await fetch(
-                `http://www.omdbapi.com/?apikey=${apiKey}&t=${id}`
+                `https://www.omdbapi.com/?apikey=${apiKey}&t=${id}`
             );
             jsonData = await fetchData.json();
             // console.log(jsonData);
