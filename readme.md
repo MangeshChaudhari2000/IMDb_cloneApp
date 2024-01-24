@@ -17,4 +17,4 @@ then Searbar where user can search movies
 ```
 
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[IMDB Clone](https://mangeshchaudhari2000.github.io/IMDb_cloneApp/mainPage.html)
