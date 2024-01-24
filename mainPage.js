@@ -95,7 +95,7 @@ const getData = async function (movie) {
                 <a  href="HomePage.html?id=${jsonData.Title}"><img id="poster" src="${jsonData.Poster}" alt="" onerror="this.src='NotFoundImage.png'" ></a>
                 <div id="movieName">
                 <p>${jsonData.Title}</p>
-                <a onclick="addToFavourites('${i.Title}')" href="#">  <i class="fa-solid fa-bookmark fa-flip" style="--fa-animation-duration: 3s; --fa-animation-iteration-count: infinite;" ></i>
+                <a onclick="addToFavourites('${jsonData.Title}')" href="#">  <i class="fa-solid fa-bookmark fa-flip" style="--fa-animation-duration: 3s; --fa-animation-iteration-count: infinite;" ></i>
                 </div>   
                 </div>  
              `
@@ -235,7 +235,7 @@ var favouriteLoader = async function () {
         }
     }
     if (localStorage.length < 2) {
-        div1.innerHTML += `<h1>No Movies Added to Favourite List</h1>`
+        div1.innerHTML += `<h1 id="not-found">No Movies Added to Favourite List</h1>`
     }
     document.getElementById("test").append(div1);
 }
